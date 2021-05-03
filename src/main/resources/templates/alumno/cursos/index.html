@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/AlumnoMenuLayout :: header"> </header>
+
+
+	<main id="main">
+		<section class="inner-page">
+			<div class="container">
+				<br> <br>
+
+				<h2>Mis cursos</h2>
+
+				<p>Esta página te permitirá visualizar todos los cursos que
+					llevas en este año escolar, haz click para acceder a uno.</p>
+				<!-- Page's Seaching-->
+
+				<!-- Student Courses-->
+				<div class="container">
+					<ul class="d-flex flex-wrap" style="display: flex;">
+						<li class="col-lg-4 md-4 mt-3 " th:each="curso : ${cursos}"
+							style="list-style: none;">
+							<div class="card">
+								<a
+									th:href="@{'/alumno/cursos/info/index?id=' + ${curso.idClase}}">
+									<img alt="imagen" class="card-img-top"
+									th:src="@{/assets/img/Course/matematicasprueba.png}"
+									width="128px" height="128px">
+
+								</a>
+								<div class="card-body ">
+									<h5 class="card-title" th:text="${curso.nombreCurso}"></h5>
+									<a
+										th:href="@{'/alumno/cursos/info/index?id=' + ${curso.idClase}}"
+										class="btn btn-outline-default my-2 my-sm-0 ">ver curso</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--End Student Courses-->
+			<!-- ----------------------------ZONA SEGURA------------------------- -->
+		</section>
+	</main>
+
+
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>

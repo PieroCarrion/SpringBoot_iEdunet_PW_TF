@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+	<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/ProfesorMenuLayout :: header">
+	</header>
+
+	<!-- ----------------------------ZONA SEGURA------------------------- -->
+
+	<main id="main">
+		<section class="inner-page">
+		  <div class="container">
+		  <br> <br>
+			<!-- ----------------------------ZONA SEGURA------------------------- -->
+				<h2>
+					Horario de clases:
+					<script>
+                        var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                        var f = new Date();
+                        document.write(diasSemana[f.getDay()]);
+                    </script>
+				</h2>
+				<p>Esta página te permitirá visualizar los cursos que llevarás
+					durante la Semana.</p>
+			</div>
+
+
+			<div class="container">
+				<div class="table-responsive-sm">
+					<table class="table">
+						<thead class="thead-default">
+							<tr>
+								<th class="header-table" scope="col"><b>Hora</b></th>
+								<th class="header-table" scope="col"><b>Lunes</b></th>
+								<th class="header-table" scope="col"><b>Martes</b></th>
+								<th class="header-table" scope="col"><b>Miercoles</b></th>
+								<th class="header-table" scope="col"><b>Jueves</b></th>
+								<th class="header-table" scope="col"><b>Viernes</b></th>
+							</tr>
+						</thead>
+						<tbody class="body-table">
+							<tr th:each="horarioitem : ${horariositems}">
+								<td class="cabecera-hor" scope="row"
+									th:text="${horarioitem.hora}"></td>
+								<td class="normalclaass"><a target="blank"
+									th:if="${horarioitem.lunes}" class="body-class"
+									th:href="@{${horarioitem.lunesLink}}"> <span
+										th:text="${horarioitem.lunes}"></span> <br><span
+										class="link-zoom d-none d-sm-block mt-2">Link de Zoom</span>
+								</a></td>
+								<td class="normalclaass"><a target="blank"
+									th:if="${horarioitem.martes}" class="body-class"
+									th:href="@{${horarioitem.martesLink}}"> <span
+										th:text="${horarioitem.martes}"></span> <br> <span
+										class="link-zoom d-none d-sm-block mt-2">Link de Zoom</span>
+								</a></td>
+								<td class="normalclaass"><a target="blank"
+									th:if="${horarioitem.miercoles}" class="body-class"
+									th:href="@{${horarioitem.miercolesLink}}"> <span
+										th:text="${horarioitem.miercoles}"></span> <br> <span
+										class="link-zoom d-none d-sm-block mt-2">Link de Zoom</span>
+								</a></td>
+								<td class="normalclaass"><a target="blank"
+									th:if="${horarioitem.jueves}" class="body-class"
+									th:href="@{${horarioitem.juevesLink}}"> <span
+										th:text="${horarioitem.jueves}"></span> <br><span
+										class="link-zoom d-none d-sm-block mt-2">Link de Zoom</span>
+								</a></td>
+								<td class="normalclaass"><a target="blank"
+									th:if="${horarioitem.viernes}" class="body-class"
+									th:href="@{${horarioitem.viernesLink}}"> <span
+										th:text="${horarioitem.viernes}"></span> <br>  <span
+										class="link-zoom d-none d-sm-block mt-2">Link de Zoom</span>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div>
+					<h6 class="message-info">*Las clases estan sujetas a cambio</h6>
+				</div>
+
+
+
+			<!-- ----------------------------ZONA SEGURA------------------------- -->
+			</div>
+		</section>
+	</main>
+
+
+
+
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/ProfesorMenuLayout :: header"> </header>
+	<main id="main">
+		<section class="inner-page">
+			<div class="container">
+				<div th:replace="Layout/ProfesorClaseMenuLayout :: submenu"></div>
+				<div class="row tareas portfolio-container" data-aos="fade-up"
+					data-aos-delay="200">
+					<div class="col-lg portfolio-item tareas-alumno">
+						<div class="box featured" data-aos="fade-up" data-aos-delay="100">
+							<h3 class="textoReporteP text-left">Tarea 1: Alumnos que
+								rindieron el examen</h3>
+							<table id="tablax" class="table table-striped table-bordered"
+								style="width: 100%">
+								<thead>
+										<th>Fecha de Emisión</th>
+										<th>Nombre</th>
+										<th>Apellidos</th>
+										<th>Nota</th>
+								</thead>
+								<tbody>
+									<tr th:each="calificacion: ${calificaciones}">
+										<th th:text="${calificacion.FechaPublicacion}" scope="row"></th>
+										<td th:text="${calificacion.nombreAlumno}"></td>
+										<td th:text="${calificacion.apellidoAlumno}"></td>
+										<td th:text="${calificacion.nota}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>

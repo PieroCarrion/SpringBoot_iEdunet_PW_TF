@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/ProfesorMenuLayout :: header"> </header>
+
+	<main id="main">
+		<section class="inner-page">
+			<div class="container">
+				<br> <br>
+				<div class="row">
+					<div class="col-md-8 sm-12">
+						<h2>Mis aulas: </h2>
+						<p>Esta página te permitirá visualizar todos las aulas donde
+							usted es docente, haz click para acceder a una.</p>
+					</div>
+					<div class="col-md-4">
+						<form class="form-inline my-4">
+							<input class="form-control mr-sm-2" type="search"
+								placeholder="Busca una aula" aria-label="Search">
+							<button class="btn btn-outline-default my-2 my-sm-0"
+								type="submit">Buscar</button>
+						</form>
+					</div>
+				</div>
+				<!-- Student Courses-->
+				<div class="container">
+					<ul class="d-flex flex-wrap" style="display: flex;">
+						<li class="col-lg-4 md-4 mt-3 " th:each="clase : ${clases}"
+							style="list-style: none;">
+							<div class="card">
+								<a th:href="@{'/profesor/cursos/info/index?id=' + ${clase.id}}">
+									<img alt="imagen" class="card-img-top"
+									th:src="@{/assets/img/classroom/clase.png}" width="128px"
+									height="128px">
+								</a>
+								<div class="card-body ">
+									<h5 class="card-title"
+										th:text="${clase.curso.nombre} + ' - ' + ${clase.grado}"></h5>
+									<a th:href="@{'/profesor/cursos/info/index?id=' + ${clase.id}}"
+										class="btn btn-outline-default my-2 my-sm-0 ">Ver curso</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- Student Courses-->
+		</section>
+	</main>
+	<!-- End #main -->
+
+
+
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>

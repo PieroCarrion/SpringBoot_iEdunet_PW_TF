@@ -1,0 +1,102 @@
+<main id="main">
+    <section class="inner-page">
+        <div class="container">
+            <br>
+            <br>
+            <ol>
+                <li><a href="cursos.html">Mis Cursos</a></li>
+                <li><a href="informacioncursos.html">Personal Social</a></li>
+            </ol>
+            <div class="row">
+                <div class="col-md-8">
+                    <h2> Personal Social </h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-danger text-center" role="alert">
+                        Su examen empezó hace 5 minutos.
+                    </div>
+                </div>
+            </div>
+            <div class="row informaciongeneral portfolio-container">
+                <div class="col-lg-12 portfolio-item filter-informaciongeneral">
+                    <div class="box featured">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/1FAIpQLSezwUyBLFtEqLlZwIOq-Z7UJf2gpgAiZBYrQmVCz9_nzbyovQ/viewform?embedded=true" allowfullscreen></iframe>
+                        </div>
+                        
+                        <p class=" important-message text-left"> *Al concluir su examen, presione el botón enviar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<h1 th:text="${exam.descripcion + ' - Fecha: '  + exam.fechaExamen + ' - Hora: '+ exam.hora}"></h1>
+
+<div class="container align-center">
+    <iframe th:src="@{${exam.link}}" width="640" height="530"
+        frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+</div>
+
+
+
+<a
+target="blank" th:if="${horarioitem.lunes}"
+class="btn btn-light btn-sm"
+th:href="@{${horarioitem.lunesLink}}">Link de Zoom</a>
+
+<table class="table">
+    <thead class="thead-default">
+        <tr>
+            <th class="header-table" scope="col"><b>Hora</b></th>
+            <th class="header-table" scope="col"><b>Lunes</b></th>
+            <th class="header-table" scope="col"><b>Martes</b></th>
+            <th class="header-table" scope="col"><b>Miercoles</b></th>
+            <th class="header-table" scope="col"><b>Jueves</b></th>
+            <th class="header-table" scope="col"><b>Viernes</b></th>
+        </tr>
+    </thead>
+    <tbody class="body-table">
+        <tr th:each="horarioitem : ${horariositems}">
+            <td class="cabecera-hor" scope="row"
+                th:text="${horarioitem.hora}"></td>
+            <td class="normalclaass">
+                <div>
+                    <span th:text="${horarioitem.lunes}"></span> <br>
+                    
+                    <a target="blank" th:if="${horarioitem.lunes}" class="btn btn-light btn-sm" th:href="@{${horarioitem.lunesLink}}">Link de Zoom</a>
+                </div>
+            </td>
+            <td class="normalclaass">
+                <div>
+                    <span th:text="${horarioitem.martes}"></span> <br>
+                    
+                    <a target="blank" th:if="${horarioitem.martes}" class="btn btn-light btn-sm" th:href="@{${horarioitem.martesLink}}">Link de Zoom</a>
+                </div>
+            </td>
+            <td class="normalclaass">
+                <div>
+                    <span th:text="${horarioitem.miercoles}"></span> <br>
+                    
+                    <a target="blank" th:if="${horarioitem.miercoles}" class="btn btn-light btn-sm" th:href="@{${horarioitem.miercolesLink}}">Link de Zoom</a>
+                </div>
+            </td>
+            <td class="normalclaass">
+                <div>
+                    <span th:text="${horarioitem.jueves}"></span> <br>
+                
+                    <a target="blank" th:if="${horarioitem.jueves}" class="btn btn-light btn-sm" th:href="@{${horarioitem.juevesLink}}">Link de Zoom</a>
+                </div>
+            </td>
+            <td class="normalclaass">
+                <div>
+                    <span th:text="${horarioitem.viernes}"></span> <br>
+                    
+                    <a target="blank" th:if="${horarioitem.viernes}" class="btn btn-light btn-sm" th:href="@{${horarioitem.viernesLink}}">Link de Zoom</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+	<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/ProfesorMenuLayout :: header">
+	</header>
+
+
+	<main id="main">
+		<section class="inner-page">
+		  <div class="container">
+		  <br> <br>
+			
+				<!-- ----------------------------ZONA SEGURA------------------------- -->
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellidos</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="profesor : ${profesores}">
+						<th th:text="${profesor.id}" scope="row">.</th>
+						<td th:text="${profesor.usuario.nombre}"></td>
+						<td th:text="${profesor.usuario.apellido}"></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<!-- ----------------------------ZONA SEGURA------------------------- -->
+		</section>
+	</main>
+
+
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>

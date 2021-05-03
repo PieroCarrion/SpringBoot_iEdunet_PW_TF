@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/ProfesorMenuLayout :: header"> </header>
+
+
+	<main id="main">
+		<section class="inner-page">
+			<div th:replace="Layout/ProfesorClaseMenuLayout :: submenu"></div>
+			<div class="container">
+				<div class="contenedor" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contenedor-lista">
+                        <div class="lista" id="lista">
+                            <h6> Recursos de las Actividades Académicas dentro su Aula</h6>
+                            <!-- imagenes #1 -->
+                            <div class="row recurso">
+                                <div class="col-md-1 well mt-2 mb-2"> <img th:src="@{/assets/img/classroom/img.png}" alt="User"></div>
+                                <div class="col-md-2 well mt-2 mb-2">
+                                    <a class="" th:href="@{'/profesor/cursos/recursos/viewRecurso?id=' + ${idClase}}">
+                                        <h2> Imágenes</h2>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 well mt-2 mb-2">
+                                    <p> Aquí se encuentran archivos jpg, svg, png, entros tipos de imágenes. </p>
+                                </div>
+                                <div class="col-md-3 well ">
+                                    <a th:href="@{'/profesor/cursos/recursos/subirRecurso?id=' + ${idClase}}" class="saveresource-btn scrollto"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                     <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7.5 1.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.354 9.854a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 8.707V12.5a.5.5 0 0 1-1 0V8.707L6.354 9.854z"/>
+                                     </svg> Subir Archivos </a>
+                                </div>
+                            </div>
+                            <!-- Pdfs  #2 -->
+                            <div class="row recurso">
+                                <div class="col-md-1 well mt-2 mb-2"> <img th:src="@{/assets/img/classroom/pdf.png}" alt="User"></div>
+                                <div class="col-md-2 well mt-2 mb-2">
+                                    <a class="" th:href="@{'/profesor/cursos/recursos/viewRecurso?id=' + ${idClase}}">
+                                        <h2> Archivos</h2>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 well mt-2 mb-2">
+                                    <p> Aquí se encuentran archivos pdf, word, ppt, excel entre otros. </p>
+                                </div>
+                                <div class="col-md-3 well ">
+                                    <a th:href="@{'/profesor/cursos/recursos/subirRecurso?id=' + ${idClase}}" class="saveresource-btn scrollto"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7.5 1.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.354 9.854a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 8.707V12.5a.5.5 0 0 1-1 0V8.707L6.354 9.854z"/>
+                                      </svg> Subir Archivos </a>
+                                </div>
+                            </div>
+                            <!-- Videos #3 -->
+                            <div class="row recurso">
+                                <div class="col-md-1 well mt-2 mb-2"> <img th:src="@{/assets/img/classroom/video.png}" alt="User"></div>
+                                <div class="col-md-2 well mt-2 mb-2">
+                                    <a class="" th:href="@{'/profesor/cursos/recursos/viewRecurso?id=' + ${idClase}}">
+                                        <h2> Videos</h2>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 well mt-2 mb-2">
+                                    <p> Aquí se encuentran vídeos de Youtube, Vimeo, mp3, mp4, entre otros. </p>
+                                </div>
+                                <div class="col-md-3 well ">
+                                    <a th:href="@{'/profesor/cursos/recursos/subirRecurso?id=' + ${idClase}}" class="saveresource-btn scrollto"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7.5 1.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.354 9.854a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 8.707V12.5a.5.5 0 0 1-1 0V8.707L6.354 9.854z"/>
+                                      </svg> Subir Archivos </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>		
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>

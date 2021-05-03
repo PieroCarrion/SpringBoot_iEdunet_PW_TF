@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="Layout/FooterLayout :: head">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header th:replace="Layout/AlumnoMenuLayout :: header"> </header>
+    <main id="main">
+        <section class="inner-page">
+            <div th:replace="Layout/AlumnoClaseMenuLayout :: submenu"> </div>
+            <div class="container">
+            																																														
+                <!-- fin de la navegacion-->
+                <div class="contenedor" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contenedor-lista">
+                        <div class="lista" id="lista" >
+                            <h6> Recursos de las Actividades Académicas dentro su Aula</h6>
+                            <!-- imagenes #1 -->
+                            <div class="row recurso" th:each = "recurso : ${recursos}">
+                                <div class="col-md-1 well mt-2 mb-2"></div>
+                                <div class="col-md-2 well mt-2 mb-2">
+                                    <a class="" th:href="@{'https://'+${recurso.linkDocumento}}">
+                                    	<div class="col-md-1 well mt-2 mb-2"> <img src="/assets/img/classroom/pdf.png" alt="User"></div>
+                                        
+                                    </a>
+                                </div>
+                                <a class="" th:href="@{'https://'+${recurso.linkDocumento}}">
+                                    	<h2 th:text ="${recurso.nombre}"> </h2>
+                                		        
+                                </a>
+                                
+                                <p th:text = "'Fecha de Subida: '+${recurso.fechaPublicacion}"></p>
+                                <div class="col-md-3 well mt-2 mb-2">
+                                    <p th:text = "'Descripcion: '+ ${recurso.descripcion}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer th:replace="Layout/FooterLayout :: footer"></footer>
+
+</body>
+
+</html>

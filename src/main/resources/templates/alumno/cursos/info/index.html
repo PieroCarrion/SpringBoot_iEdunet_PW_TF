@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="Layout/FooterLayout :: head">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header th:replace="Layout/AlumnoMenuLayout :: header"> </header>
+    <main id="main">
+        <section class="inner-page">
+            <div th:replace="Layout/AlumnoClaseMenuLayout :: submenu"> </div>
+            <div class="container">
+                <!-- fin de la navegacion-->
+                <div class="row informaciongeneral portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-12 portfolio-item filter-informaciongeneral">
+                        <div class="box featured" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-lg-12">
+                                <h2>Información acerca del curso</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <h3 class="text-left mt-1">
+                                            <b th:text="'Docente del curso: ' + ${curso.docenteCurso}"></b>
+                                        </h3>
+                                        <h3 class="text-left">
+                                            <b th:text="'Horario: ' + ${curso.horarioCurso}"></b>
+                                        </h3>
+                                        <h3 class="text-left mt-4">
+                                     
+                                            <i class="ri-check-double-line"></i> <a th:href="@{'https://'+${linkClase}}" th:target="_blank"> Haz
+												click aquí para acceder a tu clase de zoom <svg width="1em"
+													height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right"
+													fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+														fill-rule="evenodd"
+														d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                                    </svg>
+											</a>
+                                        </h3>
+                                        <h3 class="text-left mt-2">
+                                            <i class="ri-check-double-line"></i> <a th:href="@{'/alumno/cursos/info/email?id='+${idClase}}"> Haz click aquí para
+												enviar un mensaje a tu profesor <svg width="1em"
+													height="1em" viewBox="0 0 16 16" class="bi bi-envelope"
+													fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+														fill-rule="evenodd"
+														d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                                              </svg>
+											</a>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+									<div class=row>
+										<div id="carouselExampleControls" th:if="${hasComunicados}" class="carousel slide"
+											data-ride="carousel">
+											<div class="carousel-inner">
+												<div class="carousel-item active" >
+													<div class="card comunicado">
+														<div class="card-body ">
+															<h3 class="card-title" th:text="${comunicado1.titulo}"></h3>
+															<h5 th:text="${comunicado1.descripcion}"></h5>
+															<span th:text="${comunicado1.fecha}"></span>
+														</div>
+													</div>
+												</div>
+												<div class="carousel-item"
+													th:each="comunicado : ${comunicados}">
+													<div class="card comunicado">
+														<div class="card-body ">
+															<h3 class="card-title" th:text="${comunicado.titulo}"></h3>
+															<h5 th:text="${comunicado.descripcion}"></h5>
+															<span th:text="${comunicado.fecha}"></span>
+														</div>
+													</div>
+												</div>
+
+											</div>
+											<a class="carousel-control-prev"
+												href="#carouselExampleControls" role="button"
+												data-slide="prev"> <span
+												class="carousel-control-prev-icon" aria-hidden="true"></span>
+												<span class="sr-only">previamente</span>
+											</a> <a class="carousel-control-next"
+												href="#carouselExampleControls" role="button"
+												data-slide="next"> <span
+												class="carousel-control-next-icon" aria-hidden="true"></span>
+												<span class="sr-only">siguiente</span>
+											</a>
+										</div>
+										<h3 th:unless="${hasComunicados}">No hay comunicados
+											publicados</h3>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 portfolio-item filter-examenes">
+                        <div class="box featured" data-aos="fade-up" data-aos-delay="100">
+                            <h2>Todos mis Exámenes:</h2>
+                            <div class="container" data-aos="fade-up">
+                                <div class="row" th:each="actividad : ${actividades}">
+                                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                                        <div class="icon-box">
+                                            <div class="icon">
+                                                <i class="bx bx-file"></i>
+                                            </div>
+                                            <h5 th:text="${actividad.descripcion}">
+                                            </h5>
+                                            <p>
+                                                <b> Fecha de publicación: </b>
+                                                <h6 th:text="${actividad.fecha_publicacion}"></h6><br>
+                                                <b> Fecha de entrega: </b>
+                                                <h6 th:text="${actividad.fecha_maxentrega}"></h6><br>
+                                                <br>Recuerde tomar las precausiones antes de rendir su evaluación
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                                        <div class="icon-box">
+                                            <div class="icon">
+                                                <i class="bx bx-file"></i>
+                                            </div>
+                                            <h5>
+                                                <a href="examenalumno.html">Exámen Bimestral</a>
+                                            </h5>
+                                            <p>
+                                                <b> Fecha: Martes 13 de Nombre </b> <br> <b> 10:00
+													am - 11:30 am </b><br>Recuerde tomar las precausiones antes de rendir su evaluación
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+                                        <div class="icon-box">
+                                            <div class="icon">
+                                                <i class="bx bx-file"></i>
+                                            </div>
+                                            <h5>
+                                                <a href="examenalumno.html">Tarea II</a>
+                                            </h5>
+                                            <p>
+                                                <b> Fecha Límite: Viernes 30 de Noviembre</b><br>Recuerde tomar las precausiones antes de rendir su evaluación
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+                                        <div class="icon-box">
+                                            <div class="icon">
+                                                <i class="bx bx-file"></i>
+                                            </div>
+                                            <h5>
+                                                <a href="examenalumno.html">Exámen Final</a>
+                                            </h5>
+                                            <p>
+                                                <b> Fecha: Viernes 13 de Noviembre </b> <br> <b>
+													10:00 am - 11:30 am </b><br>Recuerde tomar las precausiones antes de rendir su evaluación
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+
+</html>

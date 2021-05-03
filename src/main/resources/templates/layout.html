@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>iEduNet</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link th:href="@{/assets/img/favicon.png}" rel="icon">
+<link th:href="@{/assets/img/apple-touch-icon.png}"
+	rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i}"
+	rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/assets/vendor/icofont/icofont.min.css}"
+	rel="stylesheet">
+<link th:href="@{/assets/vendor/boxicons/css/boxicons.min.css}"
+	rel="stylesheet">
+<link th:href="@{/assets/vendor/remixicon/remixicon.css}"
+	rel="stylesheet">
+<link th:href="@{/assets/vendor/venobox/venobox.css}" rel="stylesheet">
+<link
+	th:href="@{/assets/vendor/owl.carousel/assets/owl.carousel.min.css}"
+	rel="stylesheet">
+<link th:href="@{/assets/vendor/aos/aos.css}" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link th:href="@{/assets/css/style.css}" rel="stylesheet">
+
+</head>
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top header-inner-pages">
+		<div class="container d-flex align-items-center">
+			<h1 class="mr-auto">
+				<a href="index.html">iEduNet</a>
+			</h1>
+			<!-- Uncomment below if you prefer to use an image logo -->
+			<nav class="nav-menu d-none d-lg-block">
+				<ul>
+					<li><a th:href="@{/profesor/}">Profesor</a></li>
+					<li><a th:href="@{/profesor/cursos/}">Cursos</a></li>
+					<li><a th:href="@{/profesor/horario}">Horarios</a></li>
+					<li><a th:href="@{/profesor/reportes}">Reportes</a></li>
+				</ul>
+			</nav>
+			<!-- .nav-menu -->
+			<a href="index.html" class="get-started-btn scrollto">Cerrar
+				Sesión</a>
+		</div>
+	</header>
+	<!-- End Header -->
+
+
+	<main id="main">
+		<section id="breadcrumbs" class="breadcrumbs">
+			<!-- ----------------------------ZONA SEGURA------------------------- -->
+			<h1>CURSOS</h1>
+			<!-- ----------------------------ZONA SEGURA------------------------- -->
+		</section>
+	</main>
+
+
+
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+
+		<div class="container footer-bottom clearfix">
+			<div class="copyright">&copy; 2020 iEduNet Inc. Todos los
+				derechos reservados. Número de patente 7.493.396 y 7.558.853 de
+				Perú. Resto de patentes en trámite.</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+	<div id="preloader"></div>
+
+	<!-- Vendor JS Files -->
+	<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/assets/vendor/jquery.easing/jquery.easing.min.js}"></script>
+	<script th:src="@{/assets/vendor/php-email-form/validate.js}"></script>
+	<script th:src="@{/assets/vendor/waypoints/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+	<script th:src="@{/assets/vendor/venobox/venobox.min.js}"></script>
+	<script th:src="@{/assets/vendor/owl.carousel/owl.carousel.min.js}"></script>
+	<script th:src="@{/assets/vendor/aos/aos.js}"></script>
+
+	<!-- Template Main JS File -->
+	<script th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>

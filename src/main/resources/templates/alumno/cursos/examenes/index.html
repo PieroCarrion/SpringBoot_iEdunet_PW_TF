@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/AlumnoMenuLayout :: header"> </header>
+
+	<main id="main">
+		<section id="breadcrumbs" class="breadcrumbs">
+			<section class="inner-page">
+				<div th:replace="Layout/AlumnoClaseMenuLayout :: submenu"></div>
+				<div class="container">
+					<!-- fin de la navegacion-->
+					<div class="row informaciongeneral portfolio-container"
+						data-aos="fade-up" data-aos-delay="200">
+						<div class="col-lg-12 portfolio-item filter-informaciongeneral">
+							<div class="box featured" data-aos="fade-up" data-aos-delay="100">
+								<h2>Todos mis Exámenes:</h2>
+								<div class="container" data-aos="fade-up">
+									<ul class="d-flex flex-wrap" th:if="${hasExams}"
+										style="display: flex;">
+										<li class="col-xl-4 col-md-6 d-flex align-items-stretch"
+											data-aos="zoom-in" data-aos-delay="100"
+											th:each="exam : ${exams}" style="list-style: none;">
+											<div>
+												<div class="icon-box">
+													<div class="icon">
+														<i class="bx bx-file"></i>
+													</div>
+													<h5>
+														<a
+															th:href="@{'/alumno/cursos/examenes/examen?id=' + ${exam.id}}"
+															th:text="${exam.descripcion}"> </a>
+													</h5>
+													<p>
+														<b> Fecha: <span th:text="${exam.fechaExamen}"></span></b>
+														<br> <b> Hora de Inicio: <span
+															th:text="${exam.hora}"></span>
+														</b><br>Recuerde tomar las precausiones antes de rendir
+														su evaluación
+													</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<ul>
+									</ul>
+									<h3 th:unless="${hasExams}">No hay exámenes programados</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+	</main>
+
+
+
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>
+

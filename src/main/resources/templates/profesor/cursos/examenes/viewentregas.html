@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/ProfesorMenuLayout :: header"> </header>
+
+	<!-- End Header -->
+	<main id="main">
+		<section class="inner-page">
+			<div class="container">
+				<br> <br>
+				<ol>
+					<li><a href="aulas.html">Mis Aulas</a></li>
+	
+					<li><a href="examenesprofesor.html">Evaluaciones</a></li>
+				</ol>
+				<div class="row">
+					<div class="col-md-8">
+						<h2>Examen <!--  <span th:text="${nombreCurso}+': '+${notas.descripcion}"></span>--></h2>
+					</div>
+				</div>
+				<div class="row tareas " data-aos="fade-up" data-aos-delay="200">
+					<div class="col-lg tareas-profesor">
+						<div class="box featured" data-aos="fade-up" data-aos-delay="100">
+							<div class="row">
+								<div class="col-lg-8">
+									<h3 class="text-left">Examenes: <span th:text="${#lists.size(notas)}"></span> Entregado(s)</h3>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<select class="form-control" id="exampleFormControlSelect1">
+											<option>Ordenar...</option>
+											<option>Por nombre</option>
+											<option>Por nota</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="contenedor">
+								<div class="contenedor-lista">
+									<div class="lista" id="lista">
+										<h6>Haga click en un alumno para visualizar el examen
+											dentro de Google-forms</h6>
+										<!-- Alumno #1 -->
+										
+											
+												<div class="row alumno" th:each="nota : ${notas}">
+													<div class="col-md-2 well mt-2 mb-2">
+														<img th:src="@{/assets/img/classroom/user.png}" alt="User">
+													</div>
+													<div class="col-md-2 well">
+														<p class="label">Código</p>
+														<p class="dato" th:text="${nota.codigoAlumno}"></p>
+													</div>
+													<div class="col-md-2 well">
+														<p class="label">Alumno</p>
+														<p class="dato" th:text="${nota.nombre}+' '+${nota.apellido}"></p>
+													</div>
+													<div class="col-md-2 well">
+														<p class="label">Nota</p>
+														<p class="dato" th:text="${nota.nota}"></p>
+													</div>
+													<div class="col-md-4 well ">
+														<a th:href="@{'/profesor/cursos/examenes/scoreExamen?idA=' + ${nota.idAlumno}+'&idC='+ ${nota.idExamen}}"
+															class="calificar-btn scrollto"> <svg width="1em"
+																height="1em" viewBox="0 0 16 16"
+																class="bi bi-file-earmark-check-fill"
+																fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+																	fill-rule="evenodd"
+																	d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7.5 1.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.354 9.854a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 8.707V12.5a.5.5 0 0 1-1 0V8.707L6.354 9.854z" />
+                                                      </svg> Calificar
+														</a>
+													</div>
+												</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</main>
+	<!-- End #main -->
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+
+</html>

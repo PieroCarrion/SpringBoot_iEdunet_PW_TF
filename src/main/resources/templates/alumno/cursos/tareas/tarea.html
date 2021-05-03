@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<header th:replace="Layout/AlumnoMenuLayout :: header"> </header>
+
+	
+	<main id="main">
+		<section class="inner-page">
+			<div class="container">
+				<br> <br>
+				<ol>
+					<li><a href="cursos.html">Mis Cursos</a></li>
+					<li><a href="informacioncursos.html">Personal Social</a></li>
+					<li><a href="tareasalumno.html">Tareas</a></li>
+				</ol>
+				<div class="row">
+					<div class="col-md-8">
+						<h2>Personal Social</h2>
+						<p>En esta página se mostrará toda la información del curso
+							Personal Social.</p>
+					</div>
+					<div class="col-md-4">
+						<form class="form-inline my-4">
+							<input class="form-control mr-sm-2" type="search"
+								placeholder="¿Qué necesitas?" aria-label="Search">
+							<button class="btn btn-outline-default my-2 my-sm-0"
+								type="submit">Buscar</button>
+						</form>
+					</div>
+				</div>
+				<div class="row tareas portfolio-container" data-aos="fade-up"
+					data-aos-delay="200">
+					<div class="col-lg portfolio-item tareas-alumno">
+						<div class="box featured" data-aos="fade-up" data-aos-delay="100">
+							<div class="col-lg">
+								<h2>Tarea 1</h2>
+							</div>
+							<div class="col-lg-12 text-left">
+								<h6>
+									<b>Informacion sobre la entrega: </b>
+								</h6>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Nam a mattis tortor. Donec bibendum id arcu ac tincidunt.
+									Integer laoreet justo id neque laoreet, et fermentum est
+									rhoncus. Curabitur porttitor, ante tincidunt sodales faucibus,
+									magna diam porttitor justo, eget volutpat nunc nibh eget
+									lectus. Mauris convallis malesuada sapien eu cursus. Mauris non
+									metus mi. Suspendisse rutrum mauris a dictum tempor.
+									Pellentesque tincidunt aliquam justo non malesuada. Suspendisse
+									vitae elit congue, laoreet sapien sit amet, eleifend arcu. Nunc
+									nibh orci, finibus et neque non, tempus convallis mi. Donec vel
+									commodo arcu, id viverra lacus. Nam ut posuere erat, id
+									scelerisque felis.</p>
+							</div>
+							<form th:action="@{/alumno/cursos/tareas/save-tarea}"
+								th:object="${tarea}" method="post">
+								<div class="col-lg-12 mt-3">
+									<div class="row">
+										<div class="col-lg-2 mt-1 mb-1">
+											<div class="opcions-for-homework">
+												<span class="text-in-box"> Puntos posibles</span> <br>
+												20
+											</div>
+										</div>
+										<div class="col-lg-10 mt-1 mb-1">
+											<div class="opcions-for-homework">
+												<div class="row">
+													<div class="col-lg-10 md-8">
+														<input id="link-input" type="text" class="form-control"
+															th:field="*{linkDoc}" placeholder="Link">
+															<input id="link-input" style="display: none;" type="text" class="form-control"
+															th:field="*{idActividad}" placeholder="Link">
+															<label for="formGroupExampleInput2">Demo de Explorador de Archivos</label>
+															<input type="file" class="form-control-file" id="elegirarchivo">
+													</div>
+													<div class="col-lg-2" id="enviartarea-btn">
+														<button type="submit" class="btn btn-info">Enviar
+															Tarea</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+
+</html>

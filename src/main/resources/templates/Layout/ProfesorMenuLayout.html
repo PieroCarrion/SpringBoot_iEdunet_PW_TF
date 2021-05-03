@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/FooterLayout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top header-inner-pages"
+		th:fragment="header">
+		<div class="container d-flex align-items-center">
+			<h1 class="mr-auto">
+				<a href="index.html">iEduNet</a>
+			</h1>
+			<!-- Uncomment below if you prefer to use an image logo -->
+			<nav class="nav-menu d-none d-lg-block mr-2">
+				<ul>
+					<li><a th:href="@{/profesor/cursos/}">Aulas</a></li>
+					<li><a th:href="@{/profesor/horario}">Horarios</a></li>
+				</ul>
+			</nav>
+			<ul sec:authorize="isAuthenticated()" class="get-started-btn scrollto"
+				style="margin-right: 50px;">
+				<li class="nav-item dropdown"><a
+					class="dropdown-toggle" href="#"
+					id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> <i
+						class="fas fa-user-circle"></i> User: <span
+						sec:authentication="name">001T202071459863</span>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
+					</div></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- End Header -->
+	<footer th:replace="Layout/FooterLayout :: footer"></footer>
+</body>
+</html>
